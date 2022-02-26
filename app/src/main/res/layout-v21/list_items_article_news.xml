@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:elevation="@dimen/margin_card_medium"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    app:cardCornerRadius="@dimen/card_cornor_radius"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="0dp"
+    android:layout_margin="10dp"
+    app:strokeColor="@color/color_gray"
+    android:id="@+id/card_speciality"
+    android:layout_height="wrap_content"
+    app:strokeWidth="1dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            app:strokeColor="@color/color_gray"
+            app:strokeWidth="1dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/iv_news"
+                android:src="@drawable/app_logo"
+                android:padding="@dimen/margin_card_medium"
+                tools:targetApi="lollipop" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="4"
+                android:layout_gravity="top"
+                android:gravity="top"
+                android:text="@string/new_title"
+                android:id="@+id/tv_news_title"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="03/02/2022"
+                    android:id="@+id/tv_news_creation_date"
+                    android:textColor="@color/color_gray"
+                    android:textSize="14sp"/>
+                <ImageView
+                    android:id="@+id/iv_new_count"
+                    android:layout_width="50dp"
+                    android:layout_height="27dp"
+                    android:maxWidth="10dp"
+                    android:backgroundTint="@color/color_gray"
+                    android:layout_toStartOf="@+id/tv_news_count"
+                    android:src="@drawable/ic_new_count_foreground"
+                    android:contentDescription="TODO" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="400"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/tv_news_count"
+                    android:textColor="@color/color_gray"
+                    android:textSize="14sp"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

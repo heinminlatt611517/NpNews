@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray"
+    tools:context=".activities.ProfileActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/app_color">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_userAccount"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:src="@drawable/user"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tv_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mr. test"
+                android:layout_marginLeft="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:textColor="@android:color/white"
+                app:layout_constraintTop_toTopOf="@+id/iv_userAccount"
+                app:layout_constraintStart_toEndOf="@+id/iv_userAccount"/>
+
+            <TextView
+                android:id="@+id/tv_userPhNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+956666666666"
+                android:layout_marginLeft="@dimen/margin_medium_2"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:textColor="@android:color/white"
+                app:layout_constraintTop_toBottomOf="@+id/tv_userName"
+                app:layout_constraintStart_toEndOf="@+id/iv_userAccount"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_userAccount"/>
+
+
+            <ImageView
+                android:id="@+id/iv_editUserAccount"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit_foreground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_userAccount"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_userAccount"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_top"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:elevation="2dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_marginRight="@dimen/margin_medium_2"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/margin_medium_2"
+            android:paddingRight="@dimen/margin_medium_2">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_chooseLang"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/my" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Language"
+                    android:paddingTop="@dimen/margin_small"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_privacy"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/circle_bg" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Privacy &amp; Term"
+                    android:paddingTop="@dimen/margin_small"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_helpCenter"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/circle_bg" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Help Center"
+                    android:paddingTop="@dimen/margin_small"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_marginRight="@dimen/margin_medium_2"
+        app:layout_constraintTop_toBottomOf="@+id/cv_top"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_middle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:elevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium_2">
+
+                    <LinearLayout
+                        android:id="@+id/layoutTow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tv_email_hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email"
+                            android:textColor="@color/color_gray"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="customer@gmail.com"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:textColor="@color/black"
+                            />
+                        <TextView
+                            android:id="@+id/tv_divider2"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:text="Customer One"
+                            android:layout_marginTop="@dimen/margin_medium_2"
+                            android:background="@color/color_gray"
+                            android:textColor="@color/black"
+                            />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/layoutThree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/layoutTow">
+
+                        <TextView
+                            android:id="@+id/tv_phone_hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Phone"
+                            android:textColor="@color/color_gray"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="09999999999"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:textColor="@color/black"
+                            />
+                        <TextView
+                            android:id="@+id/tv_divider3"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:text="Customer One"
+                            android:layout_marginTop="@dimen/margin_medium_2"
+                            android:background="@color/color_gray"
+                            android:textColor="@color/black"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutFour"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/layoutThree">
+
+                        <TextView
+                            android:id="@+id/tv_gender_hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gender"
+                            android:textColor="@color/color_gray"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_gender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Male"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:textColor="@color/black"
+                            />
+                        <TextView
+                            android:id="@+id/tv_divider4"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:text="Customer One"
+                            android:layout_marginTop="@dimen/margin_medium_2"
+                            android:background="@color/color_gray"
+                            android:textColor="@color/black"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutFive"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/layoutFour">
+
+                        <TextView
+                            android:id="@+id/tv_dateOfBirth_hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date of Birth"
+                            android:textColor="@color/color_gray"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_DateOfBirth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10/4/1993"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:textColor="@color/black"
+                            />
+                        <TextView
+                            android:id="@+id/tv_divider5"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:text="Customer One"
+                            android:layout_marginTop="@dimen/margin_medium_2"
+                            android:background="@color/color_gray"
+                            android:textColor="@color/black"
+                            />
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_signOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign Out"
+                android:padding="@dimen/margin_medium_2"
+                android:textColor="@color/color_pink"
+                android:backgroundTint="@color/white"
+                android:layout_marginTop="@dimen/margin_large"
+                />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

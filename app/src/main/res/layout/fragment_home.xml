@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/margin_medium_2"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome, May"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/text_heading_1x"/>
+    <TextView
+        android:id="@+id/tv_latest_news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Latest news for you"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="@dimen/text_regular_2x"
+        app:layout_constraintTop_toBottomOf="@+id/tv_userName"/>
+
+    <ImageView
+        android:id="@+id/iv_notification"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_notification_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_userName"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_latest_news"/>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_marginRight="@dimen/margin_medium_2"
+        android:layout_marginTop="30dp"
+        android:background="@color/color_gray"
+        app:layout_constraintTop_toBottomOf="@+id/tv_latest_news"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:backgroundTint="@android:color/transparent"
+        app:tabIndicatorColor="@android:color/transparent"
+        app:tabMode="fixed"
+        app:layout_constraintTop_toBottomOf="@+id/search_bar"
+        app:tabSelectedTextColor="@color/app_color"
+        app:tabTextAppearance="@style/CustomTextAppearanceTab"
+        app:tabTextColor="@color/black"
+        android:layout_margin="@dimen/margin_medium_2"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tabs"
+        />
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="3dp"-->
+<!--            android:layout_marginRight="3dp"-->
+<!--            android:layout_marginTop="@dimen/margin_medium_2"-->
+<!--            android:layout_marginBottom="50dp"-->
+<!--            android:id="@+id/rv_news"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tabs"/>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

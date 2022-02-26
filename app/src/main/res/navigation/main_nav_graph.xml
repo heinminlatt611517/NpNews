@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    app:startDestination="@+id/navigation_home">
+
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.heinminlatt.npnews.fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+
+        <argument android:name="name"
+            app:argType="string"/>
+
+        <action
+            android:id="@+id/action_navigation_home_to_localNews"
+            app:destination="@id/navigation_localNews" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_localNews"
+        android:name="com.heinminlatt.npnews.fragments.LocalNewsFragment"
+        android:label="Local News"
+        tools:layout="@layout/fragment_local_news" >
+
+        <action
+            android:id="@+id/action_localNews_to_globalNews"
+            app:destination="@id/navigation_globalNews" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_globalNews"
+        android:name="com.heinminlatt.npnews.fragments.GlobalNewsFragment"
+        android:label="Global News"
+        tools:layout="@layout/fragment_global_news" >
+
+
+        <action
+            android:id="@+id/action_globalNews_to_interview"
+            app:destination="@id/navigation_interview" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_interview"
+        android:name="com.heinminlatt.npnews.fragments.InterviewFragment"
+        android:label="Interview"
+        tools:layout="@layout/fragment_interview" >
+
+        <action
+            android:id="@+id/action_interview_to_article"
+            app:destination="@id/navigation_article" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_article"
+        android:name="com.heinminlatt.npnews.fragments.ArticleFragment"
+        android:label="Article"
+        tools:layout="@layout/fragment_artical" >
+
+    </fragment>
+
+</navigation>
