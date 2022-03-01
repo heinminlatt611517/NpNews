@@ -6,11 +6,13 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.heinminlatt.npnews.R
 import com.heinminlatt.npnews.adapters.HomeRelatedNewsAdapter
+import com.heinminlatt.npnews.fragments.CommentBottomSheetFragment
 import com.heinminlatt.npnews.mvp.presenters.HomeNewsPresenter
 import com.heinminlatt.npnews.mvp.presenters.impls.HomeNewsPresenterImpl
 import com.heinminlatt.npnews.mvp.views.HomeNewsView
 import com.heinminlatt.shared.activity.BaseActivity
 import kotlinx.android.synthetic.main.activity_home_news_detail.*
+import kotlinx.android.synthetic.main.fragment_account.*
 
 class HomeNewsActivity : BaseActivity(),HomeNewsView {
     companion object{
@@ -30,6 +32,7 @@ class HomeNewsActivity : BaseActivity(),HomeNewsView {
         setUpPresenter()
         setUpRecyclerView()
         setUpActionListener()
+
     }
 
     private fun setUpActionListener() {
@@ -59,7 +62,11 @@ class HomeNewsActivity : BaseActivity(),HomeNewsView {
     }
 
     override fun navigateToLoginScreen() {
-        startActivity(this.let { LoginActivity.newIntent(it) })
+        //startActivity(this.let { LoginActivity.newIntent(it) })
+            val bottomSheetDialogFragment = CommentBottomSheetFragment()
+            this.supportFragmentManager.let { it1 ->
+                bottomSheetDialogFragment.show(it1,"TAG")
+        }
     }
 
     override fun navigateToPreviousScreen() {

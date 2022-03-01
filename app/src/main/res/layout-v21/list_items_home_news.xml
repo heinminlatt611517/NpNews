@@ -5,7 +5,6 @@
     app:cardCornerRadius="@dimen/card_cornor_radius"
     app:cardBackgroundColor="@color/white"
     app:cardElevation="0dp"
-    android:layout_margin="10dp"
     app:strokeColor="@color/color_gray"
     android:id="@+id/card_speciality"
     android:layout_height="wrap_content"

@@ -34,4 +34,14 @@
         <item name="colorControlNormal">@color/color_rating</item>
         <item name="colorControlActivated">@color/color_rating</item>
     </style>
+
+
+//bottomSheetDialog
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    </style>
+
+    <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="behavior_peekHeight">500dp</item>
+    </style>
 </resources>

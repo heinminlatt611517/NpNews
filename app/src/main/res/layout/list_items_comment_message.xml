@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_small"
+    android:layout_marginBottom="@dimen/margin_medium"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_user"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_margin="@dimen/margin_small"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/my"/>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/color_gray"
+        app:cardCornerRadius="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        app:layout_constraintStart_toEndOf="@+id/iv_user"
+        app:layout_constraintTop_toTopOf="@+id/iv_user">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_medium"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customer"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tv_userComment"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/new_title"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

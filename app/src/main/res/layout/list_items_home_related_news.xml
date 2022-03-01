@@ -5,9 +5,9 @@
     app:cardCornerRadius="@dimen/card_cornor_radius"
     app:cardBackgroundColor="@color/white"
     app:cardElevation="0dp"
-    android:layout_margin="10dp"
     app:strokeColor="@color/color_gray"
     app:strokeWidth="1dp"
+    android:layout_marginBottom="6dp"
     android:id="@+id/card_speciality"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">

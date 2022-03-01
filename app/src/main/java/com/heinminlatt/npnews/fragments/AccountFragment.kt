@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.heinminlatt.npnews.R
 import com.heinminlatt.npnews.activities.EditProfileActivity
+import com.heinminlatt.npnews.activities.MainActivity
 import com.heinminlatt.npnews.mvp.presenters.AccountPresenter
 import com.heinminlatt.npnews.mvp.presenters.impls.AccountPresenterImpl
 import com.heinminlatt.npnews.mvp.views.AccountView
@@ -45,6 +46,7 @@ class AccountFragment : BaseFragment() , AccountView{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("Language",SessionManager.language.toString())
+
         setUpPresenter()
         setUpActionListener()
     }

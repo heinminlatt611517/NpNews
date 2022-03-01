@@ -52,6 +52,13 @@ class HomeFragment : BaseFragment(),HomeView{
         setUpPresenter()
         //setUpRecyclerView()
         setUpTabViewWithViewPager()
+        setUpActionListener()
+    }
+
+    private fun setUpActionListener() {
+        iv_notification.setOnClickListener {
+            startActivity(context?.let { HomeNewsActivity.newIntent(it) })
+        }
     }
 
     private fun setUpPresenter() {

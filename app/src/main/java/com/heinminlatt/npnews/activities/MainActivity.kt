@@ -33,6 +33,7 @@ class MainActivity : BaseActivity() {
 
 
     private fun  setUpTabViewWithViewPager(){
+        pager.isUserInputEnabled = false
         val pagerAdapter = MainPagerAdapter(this)
         pager.adapter=pagerAdapter
         TabLayoutMediator(tabs,pager){tab, position ->
