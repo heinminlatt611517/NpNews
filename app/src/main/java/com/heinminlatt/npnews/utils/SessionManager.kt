@@ -28,4 +28,10 @@ object SessionManager {
             it.putString(sharePreferenceLanguageStatus, value)
         }
 
+    var isLogin: String?
+        get() = preferences.getString(sharePreferenceLoginStatus, "")
+        set(value) = preferences.edit {
+            it.putString(sharePreferenceLoginStatus, value)
+        }
+
 }

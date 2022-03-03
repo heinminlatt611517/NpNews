@@ -1,23 +1,22 @@
 package com.heinminlatt.npnews.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayoutMediator
 import com.heinminlatt.npnews.R
-import com.heinminlatt.npnews.activities.HomeNewsActivity
+import com.heinminlatt.npnews.activities.NotificationActivity
+import com.heinminlatt.npnews.activities.RelatedNewsActivity
 import com.heinminlatt.npnews.adapters.HomeNewsAdapter
 import com.heinminlatt.npnews.adapters.HomePagerAdapter
-import com.heinminlatt.npnews.adapters.MainPagerAdapter
 import com.heinminlatt.npnews.mvp.presenters.HomePresenter
 import com.heinminlatt.npnews.mvp.presenters.impls.HomePresenterImpl
 import com.heinminlatt.npnews.mvp.views.HomeView
 import com.heinminlatt.npnews.utils.SessionManager
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.pager
 import kotlinx.android.synthetic.main.fragment_home.tabs
@@ -55,10 +54,13 @@ class HomeFragment : BaseFragment(),HomeView{
         setUpActionListener()
     }
 
+    @SuppressLint("RestrictedApi")
     private fun setUpActionListener() {
         iv_notification.setOnClickListener {
-            startActivity(context?.let { HomeNewsActivity.newIntent(it) })
+            mPresenter.onTapNotification()
         }
+
+
     }
 
     private fun setUpPresenter() {
@@ -92,7 +94,11 @@ class HomeFragment : BaseFragment(),HomeView{
 //    }
 
     override fun navigateToNewsDetailScreen() {
-        startActivity(context?.let { HomeNewsActivity.newIntent(it) })
+        startActivity(context?.let { RelatedNewsActivity.newIntent(it) })
+    }
+
+    override fun navigateToNotificationScreen() {
+        startActivity(context?.let { NotificationActivity.newIntent(it) })
     }
 
     override fun showErrorMessage(errorMessage: String) {

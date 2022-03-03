@@ -1,6 +1,6 @@
 package com.heinminlatt.npnews.delegate
 
-interface HomeNewsDetailItemDelegate {
+interface RelatedNewsItemDelegate {
     fun onTapLogin()
 
     fun onTapRelatedNewsItem()

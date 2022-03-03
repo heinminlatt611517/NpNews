@@ -13,10 +13,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
-
-
-
         <LinearLayout
             android:id="@+id/layout"
             android:layout_width="wrap_content"
@@ -58,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:text="03/02/2022"
                     android:id="@+id/tv_news_creation_date"
-                    android:textColor="@color/color_gray"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp"/>
                 <ImageView
                     android:id="@+id/iv_new_count"
@@ -74,7 +70,7 @@
                     android:text="400"
                     android:layout_alignParentEnd="true"
                     android:id="@+id/tv_news_count"
-                    android:textColor="@color/color_gray"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp"/>
             </RelativeLayout>
 

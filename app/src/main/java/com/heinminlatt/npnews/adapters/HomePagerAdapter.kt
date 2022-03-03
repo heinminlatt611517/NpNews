@@ -12,10 +12,10 @@ class HomePagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapte
 
     override fun createFragment(position: Int): Fragment {
         return when (position){
-            0 -> GlobalNewsFragment()
-            1 -> LocalNewsFragment()
-            2 -> InterviewFragment()
-            else -> LocalNewsFragment()
+            0 -> LatestNewsFragment()
+            1 -> GlobalNewsFragment()
+            2 -> LocalNewsFragment()
+            else -> InterviewFragment()
         }
     }
 

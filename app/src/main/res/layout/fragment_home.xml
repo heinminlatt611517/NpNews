@@ -27,14 +27,17 @@
         android:textSize="@dimen/text_regular_2x"
         app:layout_constraintTop_toBottomOf="@+id/tv_userName"/>
 
+
     <ImageView
         android:id="@+id/iv_notification"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_notification_foreground"
+        android:src="@drawable/ic_noti_foreground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_userName"
         app:layout_constraintBottom_toBottomOf="@+id/tv_latest_news"/>
+
+
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_bar"

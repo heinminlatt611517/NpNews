@@ -22,16 +22,15 @@
         android:orientation="horizontal">
         <com.google.android.material.card.MaterialCardView
             android:layout_width="100dp"
-            android:layout_height="120dp"
-            app:strokeColor="@color/color_gray"
-            app:strokeWidth="1dp"
+            android:layout_height="110dp"
+            android:layout_margin="@dimen/margin_medium"
             >
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/iv_news"
-                android:src="@drawable/app_logo"
-                android:padding="@dimen/margin_card_medium"
+                android:src="@drawable/news_image"
+                android:scaleType="fitXY"
                 tools:targetApi="lollipop" />
         </com.google.android.material.card.MaterialCardView>
 
@@ -62,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:text="03/02/2022"
                     android:id="@+id/tv_news_creation_date"
-                    android:textColor="@color/color_gray"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp"/>
                 <ImageView
                     android:id="@+id/iv_new_count"
@@ -79,7 +78,7 @@
                     android:text="400"
                     android:layout_alignParentEnd="true"
                     android:id="@+id/tv_news_count"
-                    android:textColor="@color/color_gray"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="14sp"/>
             </RelativeLayout>
 

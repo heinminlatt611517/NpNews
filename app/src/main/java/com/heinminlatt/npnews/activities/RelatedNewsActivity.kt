@@ -5,36 +5,40 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.heinminlatt.npnews.R
-import com.heinminlatt.npnews.adapters.HomeRelatedNewsAdapter
+import com.heinminlatt.npnews.adapters.RelatedNewsAdapter
 import com.heinminlatt.npnews.fragments.CommentBottomSheetFragment
-import com.heinminlatt.npnews.mvp.presenters.HomeNewsPresenter
-import com.heinminlatt.npnews.mvp.presenters.impls.HomeNewsPresenterImpl
-import com.heinminlatt.npnews.mvp.views.HomeNewsView
+import com.heinminlatt.npnews.mvp.presenters.RelatedNewsPresenter
+import com.heinminlatt.npnews.mvp.presenters.impls.RelatedNewsPresenterImpl
+import com.heinminlatt.npnews.mvp.views.RelatedNewsView
+import com.heinminlatt.npnews.utils.SessionManager
 import com.heinminlatt.shared.activity.BaseActivity
-import kotlinx.android.synthetic.main.activity_home_news_detail.*
-import kotlinx.android.synthetic.main.fragment_account.*
+import kotlinx.android.synthetic.main.activity_related_news.*
 
-class HomeNewsActivity : BaseActivity(),HomeNewsView {
+class RelatedNewsActivity : BaseActivity(),RelatedNewsView {
     companion object{
         fun newIntent(context: Context) : Intent {
-            return Intent(context, HomeNewsActivity::class.java)
+            return Intent(context, RelatedNewsActivity::class.java)
         }
     }
 
-    private lateinit var mRelatedNewsAdapter: HomeRelatedNewsAdapter
-    private lateinit var mPresenter: HomeNewsPresenter
+    private lateinit var mRelatedNewsAdapter: RelatedNewsAdapter
+    private lateinit var mPresenter: RelatedNewsPresenter
 
+
+    override fun onDestroy() {
+        super.onDestroy()
+        SessionManager.isLogin = ""
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_news_detail)
+        setContentView(R.layout.activity_related_news)
 
         setUpPresenter()
         setUpRecyclerView()
         setUpActionListener()
 
     }
-
     private fun setUpActionListener() {
         btn_login_and_comment.setOnClickListener {
             mPresenter.onTapLogin()
@@ -50,22 +54,28 @@ class HomeNewsActivity : BaseActivity(),HomeNewsView {
     private fun setUpRecyclerView() {
         rv_related_news.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        mRelatedNewsAdapter = HomeRelatedNewsAdapter(mPresenter)
+        mRelatedNewsAdapter = RelatedNewsAdapter(mPresenter)
         rv_related_news.adapter = mRelatedNewsAdapter
         rv_related_news.setHasFixedSize(true)
         mRelatedNewsAdapter.setNewData(mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 8, 9))
     }
 
     private fun setUpPresenter() {
-        mPresenter = ViewModelProviders.of(this).get(HomeNewsPresenterImpl::class.java)
+        mPresenter = ViewModelProviders.of(this).get(RelatedNewsPresenterImpl::class.java)
         mPresenter.initPresenter(this)
     }
 
     override fun navigateToLoginScreen() {
-        //startActivity(this.let { LoginActivity.newIntent(it) })
+        if(SessionManager.isLogin == ""){
+            startActivity(this.let {
+                SessionManager.isLogin = "Already Login"
+                LoginActivity.newIntent(it) })
+        }
+        else {
             val bottomSheetDialogFragment = CommentBottomSheetFragment()
             this.supportFragmentManager.let { it1 ->
                 bottomSheetDialogFragment.show(it1,"TAG")
+            }
         }
     }
 
@@ -80,6 +90,7 @@ class HomeNewsActivity : BaseActivity(),HomeNewsView {
     override fun showErrorMessage(errorMessage: String) {
 
     }
+
 
 
 }

@@ -1,10 +1,10 @@
 package com.heinminlatt.npnews.mvp.presenters.impls
 
-import com.heinminlatt.npnews.mvp.presenters.HomeNewsPresenter
-import com.heinminlatt.npnews.mvp.views.HomeNewsView
+import com.heinminlatt.npnews.mvp.presenters.RelatedNewsPresenter
+import com.heinminlatt.npnews.mvp.views.RelatedNewsView
 import com.heinminlatt.shared.mvp.presenter.AbstractBasePresenter
 
-class HomeNewsPresenterImpl : HomeNewsPresenter,AbstractBasePresenter<HomeNewsView>() {
+class RelatedNewsPresenterImpl : RelatedNewsPresenter,AbstractBasePresenter<RelatedNewsView>() {
     override fun onUiReady() {
 
     }

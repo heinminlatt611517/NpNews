@@ -4,20 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.NonNull
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.heinminlatt.npnews.R
-import com.heinminlatt.npnews.activities.MainActivity
-import com.heinminlatt.npnews.adapters.HomeNewsAdapter
+import com.heinminlatt.npnews.activities.RelatedNewsActivity
 import com.heinminlatt.npnews.adapters.LocalNewsAdapter
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_home.*
+import com.heinminlatt.npnews.mvp.presenters.LocalNewsPresenter
+import com.heinminlatt.npnews.mvp.presenters.impls.LocalNewsPresenterImpl
+import com.heinminlatt.npnews.mvp.views.LocalNewsView
 
 import kotlinx.android.synthetic.main.fragment_local_news.*
 
-class LocalNewsFragment : BaseFragment() {
+class LocalNewsFragment : BaseFragment(),LocalNewsView{
 
     companion object {
         private const val ID = "genre-id"
@@ -31,7 +29,7 @@ class LocalNewsFragment : BaseFragment() {
     }
 
     private lateinit var mLocalNewsAdapter: LocalNewsAdapter
-
+    private lateinit var mPresenter : LocalNewsPresenter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,25 +38,34 @@ class LocalNewsFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_local_news, container, false)
     }
 
-
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpPresenter()
         setUpRecyclerView()
     }
 
-
+    private fun setUpPresenter(){
+        mPresenter = ViewModelProviders.of(this).get(LocalNewsPresenterImpl::class.java)
+        mPresenter.initPresenter(this)
+    }
 
     private fun setUpRecyclerView() {
         rv_local_news.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        mLocalNewsAdapter = LocalNewsAdapter()
+        mLocalNewsAdapter = LocalNewsAdapter(mPresenter)
         rv_local_news.adapter = mLocalNewsAdapter
 
         mLocalNewsAdapter.setNewData(mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 8, 9))
         setUpRecyclerScrollState(rv_local_news)
+    }
+
+    override fun navigateToRelatedNewsScreen() {
+        startActivity(context?.let { RelatedNewsActivity.newIntent(it) })
+    }
+
+    override fun showErrorMessage(errorMessage: String) {
+
     }
 
 

@@ -52,6 +52,8 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
 
+    
+
     // Kotlin
     implementation rootProject.ext.libraries.ktx
 

@@ -9,6 +9,10 @@ class HomePresenterImpl : HomePresenter,AbstractBasePresenter<HomeView>() {
 
     }
 
+    override fun onTapNotification() {
+        mView?.navigateToNotificationScreen()
+    }
+
     override fun onTapNewsItems() {
         mView?.navigateToNewsDetailScreen()
     }

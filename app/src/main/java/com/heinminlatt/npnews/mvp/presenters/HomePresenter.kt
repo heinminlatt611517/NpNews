@@ -6,4 +6,5 @@ import com.heinminlatt.shared.mvp.presenter.BasePresenter
 
 interface HomePresenter : BasePresenter<HomeView>,HomeNewsItemDelegate {
     fun onUiReady()
+    fun onTapNotification()
 }
