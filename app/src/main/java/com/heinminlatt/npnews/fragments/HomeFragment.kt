@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.badge.BadgeDrawable
+import com.google.android.material.badge.BadgeUtils
 import com.google.android.material.tabs.TabLayoutMediator
 import com.heinminlatt.npnews.R
 import com.heinminlatt.npnews.activities.NotificationActivity
@@ -18,8 +20,6 @@ import com.heinminlatt.npnews.mvp.presenters.impls.HomePresenterImpl
 import com.heinminlatt.npnews.mvp.views.HomeView
 import com.heinminlatt.npnews.utils.SessionManager
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_home.pager
-import kotlinx.android.synthetic.main.fragment_home.tabs
 
 
 class HomeFragment : BaseFragment(),HomeView{
@@ -38,8 +38,8 @@ class HomeFragment : BaseFragment(),HomeView{
     private lateinit var mPresenter: HomePresenter
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
 
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -52,6 +52,12 @@ class HomeFragment : BaseFragment(),HomeView{
         //setUpRecyclerView()
         setUpTabViewWithViewPager()
         setUpActionListener()
+        createBadgeForNotificationIcon()
+    }
+
+
+    private fun createBadgeForNotificationIcon() {
+        badge.setNumber(9)
     }
 
     @SuppressLint("RestrictedApi")
@@ -59,8 +65,6 @@ class HomeFragment : BaseFragment(),HomeView{
         iv_notification.setOnClickListener {
             mPresenter.onTapNotification()
         }
-
-
     }
 
     private fun setUpPresenter() {
@@ -71,12 +75,20 @@ class HomeFragment : BaseFragment(),HomeView{
     private fun  setUpTabViewWithViewPager(){
         val pagerAdapter = activity?.let { HomePagerAdapter(it) }
         pager.adapter=pagerAdapter
-        TabLayoutMediator(tabs,pager){tab, position ->
+        TabLayoutMediator(tabs, pager){ tab, position ->
             when(position){
-                0 -> { tab.text="Latest News"}
-                1 -> {tab.text="Global News" }
-                2 -> {tab.text="Local News"}
-                3 -> {tab.text="Interview"}
+                0 -> {
+                    tab.text = "Latest News"
+                }
+                1 -> {
+                    tab.text = "Global News"
+                }
+                2 -> {
+                    tab.text = "Local News"
+                }
+                3 -> {
+                    tab.text = "Interview"
+                }
             }
 
         }.attach()

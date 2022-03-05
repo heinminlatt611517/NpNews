@@ -57,6 +57,10 @@ class AccountFragment : BaseFragment() , AccountView{
             mPresenter.onTapEdit()
         }
 
+        btn_signOut.setOnClickListener {
+            mPresenter.onTapSignOut()
+        }
+
         iv_chooseLang.setOnClickListener {
             val bottomSheetDialogFragment = ChooseLangBottomSheetFragment()
             activity?.supportFragmentManager?.let { it1 ->
@@ -81,6 +85,10 @@ class AccountFragment : BaseFragment() , AccountView{
 
     override fun navigateToEditProfileScreen() {
         startActivity(context?.let { EditProfileActivity.newIntent(it) })
+    }
+
+    override fun showLogoutDialog() {
+        logOutDialog()
     }
 
     override fun showErrorMessage(errorMessage: String) {

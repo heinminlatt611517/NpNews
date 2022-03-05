@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/navigation_globalNews"
-        android:title="Social Trend"
+        android:title="Video"
         />
 
     <item

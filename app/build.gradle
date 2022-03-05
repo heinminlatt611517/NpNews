@@ -52,8 +52,8 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
 
-    
-
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+    implementation 'com.nex3z:notification-badge:1.0.2'
     // Kotlin
     implementation rootProject.ext.libraries.ktx
 

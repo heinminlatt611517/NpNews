@@ -26,9 +26,6 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setUpActionListener() {
-//        iv_userAccount.setOnClickListener{
-//            startActivity(this.let { ProfileActivity.newIntent(it) })
-//        }
     }
 
 
@@ -40,7 +37,7 @@ class MainActivity : BaseActivity() {
             when(position){
                 0 -> { tab.text="News"}
                 1 -> {tab.text="Article" }
-                2 -> {tab.text="Social Trend"}
+                2 -> {tab.text="Video"}
                 3 -> {tab.text="Account"}
             }
 

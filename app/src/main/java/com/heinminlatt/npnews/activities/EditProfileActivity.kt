@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.heinminlatt.npnews.R
 import com.heinminlatt.shared.activity.BaseActivity
+import kotlinx.android.synthetic.main.activity_news_detail.*
 
 class EditProfileActivity : BaseActivity() {
 
@@ -18,5 +19,13 @@ class EditProfileActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
+        setUpActionListener()
+
+    }
+
+    private fun setUpActionListener(){
+        iv_back.setOnClickListener {
+            finish()
+        }
     }
 }

@@ -10,7 +10,7 @@ class AccountPresenterImpl : AccountPresenter,AbstractBasePresenter<AccountView>
     }
 
     override fun onTapSignOut() {
-
+      mView?.showLogoutDialog()
     }
 
     override fun onTapEdit() {
